@@ -1,0 +1,17 @@
+{
+    "image": "openpeerpower/{arch}-oppio-cli",
+    "build_from": {
+        "aarch64": "openpeerpower/aarch64-base:3.12",
+        "armhf": "openpeerpower/armhf-base:3.12",
+        "armv7": "openpeerpower/armv7-base:3.12",
+        "amd64": "openpeerpower/amd64-base:3.12",
+        "i386": "openpeerpower/i386-base:3.12"
+    },
+    "args": {
+        "CLI_VERSION": "4.9.0",
+        "RLWRAP_VERSION": "0.43"
+    },
+    "labels": {
+        "io.opp.type": "cli"
+    }
+}
