@@ -2,11 +2,11 @@ name: Build plugin
 
 on:
   pull_request:
-    branches: ["master"]
+    branches: ["main"]
   release:
     types: ["published"]
   push:
-    branches: ["master"]
+    branches: ["main"]
     paths:
     - Dockerfile
     - build.json
@@ -33,11 +33,11 @@ jobs:
 
     - name: Get information
       id: info
-      uses: home-assistant/actions/helpers/info@master
+      uses: openpeerpower/actions/helpers/info@master
 
     - name: Get version
       id: version
-      uses: home-assistant/actions/helpers/version@master
+      uses: openpeerpower/actions/helpers/version@master
       with:
         type: ${{ env.BUILD_TYPE }}
 
@@ -64,7 +64,7 @@ jobs:
       run: echo "BUILD_ARGS=--test" >> $GITHUB_ENV
 
     - name: Build plugin
-      uses: home-assistant/builder@2021.01.1
+      uses: openpeerpower/builder@2021.01.1
       with:
         args: |
           $BUILD_ARGS \
@@ -82,7 +82,7 @@ jobs:
 
     - name: Initialize git
       if: needs.init.outputs.publish == 'true'
-      uses: home-assistant/actions/helpers/git-init@master
+      uses: openpeerpower/actions/helpers/git-init@master
       with:
         name: ${{ secrets.GIT_NAME }}
         email: ${{ secrets.GIT_EMAIL }}
@@ -90,7 +90,7 @@ jobs:
 
     - name: Update version file
       if: needs.init.outputs.publish == 'true'
-      uses: home-assistant/actions/helpers/version-push@master
+      uses: openpeerpower/actions/helpers/version-push@master
       with:
         key: ${{ env.BUILD_NAME }}
         version: ${{ needs.init.outputs.version }}
