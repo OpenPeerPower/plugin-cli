@@ -1,16 +1,7 @@
 name: Test Init
 
 on:
-  pull_request:
-    branches: ["main"]
-  release:
-    types: ["published"]
-  push:
-    branches: ["main"]
-    paths:
-    - Dockerfile
-    - build.json
-    - 'rootfs/**'
+  workflow_dispatch
 
 env:
   BUILD_NAME: cli
@@ -34,7 +25,7 @@ jobs:
     - name: Get information
       id: info
       uses: openpeerpower/actions/helpers/info@main
-      
+
     - name: Get version
       id: version
       uses: openpeerpower/actions/helpers/version@main
