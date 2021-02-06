@@ -1,7 +1,14 @@
 name: Test Init
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      logLevel:
+      description: 'Log level'
+      required: true
+      default: 'warning'
+    tags:
+      description: 'Test scenario tags'
 
 env:
   BUILD_NAME: cli
@@ -26,8 +33,12 @@ jobs:
       id: info
       uses: openpeerpower/actions/helpers/info@main
 
+
     - name: Get version
       id: version
       uses: openpeerpower/actions/helpers/version@main
       with:
         type: ${{ env.BUILD_TYPE }}
+  
+    - name: Get information
+      run: echo "version is ${{ version }}"
