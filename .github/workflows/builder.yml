@@ -31,6 +31,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
     - name: Get information
       id: info
       uses: openpeerpower/actions/helpers/info@main
