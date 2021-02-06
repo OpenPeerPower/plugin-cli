@@ -1,14 +1,16 @@
 name: Test Init
 
 on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-      description: 'Log level'
-      required: true
-      default: 'warning'
-    tags:
-      description: 'Test scenario tags'
+  pull_request:
+    branches: ["main"]
+  release:
+    types: ["published"]
+  push:
+    branches: ["main"]
+    paths:
+    - Dockerfile
+    - build.json
+    - 'rootfs/**'
 
 env:
   BUILD_NAME: cli
@@ -32,8 +34,7 @@ jobs:
     - name: Get information
       id: info
       uses: openpeerpower/actions/helpers/info@main
-
-
+      
     - name: Get version
       id: version
       uses: openpeerpower/actions/helpers/version@main
