@@ -1,0 +1,33 @@
+name: Build plugin
+
+on:
+  workflow_dispatch
+
+env:
+  BUILD_NAME: cli
+  BUILD_TYPE: plugin
+
+jobs:
+  init:
+    name: Initialize build
+    runs-on: ubuntu-latest
+    outputs:
+      architectures: ${{ steps.info.outputs.architectures }}
+      version: ${{ steps.version.outputs.version }}
+      channel: ${{ steps.version.outputs.channel }}
+      publish: ${{ steps.version.outputs.publish }}
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Get information
+      id: info
+      uses: openpeerpower/actions/helpers/info@main
+
+    - name: Get version
+      id: version
+      uses: openpeerpower/actions/helpers/version@main
+      with:
+        type: ${{ env.BUILD_TYPE }}
