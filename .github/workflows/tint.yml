@@ -39,6 +39,3 @@ jobs:
       uses: openpeerpower/actions/helpers/version@main
       with:
         type: ${{ env.BUILD_TYPE }}
-  
-    - name: Get information
-      run: echo "version is ${{ version }}"
