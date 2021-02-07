@@ -42,7 +42,8 @@ jobs:
         type: ${{ env.BUILD_TYPE }}
 
     - name: Check version
-      OUT_VER: ${{ needs.init.outputs.version }}
+      env:
+        OUT_VER: ${{ needs.init.outputs.version }}
       run: echo "version check. $OUT_VER"
 
   build:
