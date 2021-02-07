@@ -44,7 +44,7 @@ jobs:
     - name: Check version
       env:
         OUT_VER: ${{ needs.init.outputs.version }}
-      - run: |
+      run: |
         echo "version check. $OUT_VER"
         echo "GITHUB REF check. $GITHUB_REF"
         echo "GITHUBhead ref check. $GITHUB_HEAD_REF"
