@@ -30,8 +30,7 @@ jobs:
       id: version
       uses: openpeerpower/actions/helpers/version@main
       with:
-        type: ${{ env.BUILD_TYPE }}
-        
+        type: ${{ env.BUILD_TYPE }}    
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v3
       timeout-minutes: 25:  
