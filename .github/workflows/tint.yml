@@ -25,12 +25,8 @@ jobs:
     - name: Get information
       id: info
       uses: openpeerpower/actions/helpers/info@main
-
     - name: Get version
       id: version
       uses: openpeerpower/actions/helpers/version@main
       with:
         type: ${{ env.BUILD_TYPE }}    
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-      timeout-minutes: 25:  
