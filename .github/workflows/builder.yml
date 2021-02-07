@@ -50,9 +50,6 @@ jobs:
         arch: ${{ fromJson(needs.init.outputs.architectures) }}
     steps:
 
-    - name: Check version
-      run: echo "the version is $needs.init.outputs.version"
-      
     - name: Checkout the repository
       uses: actions/checkout@v2
    
