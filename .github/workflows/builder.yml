@@ -44,10 +44,11 @@ jobs:
     - name: Check version
       env:
         OUT_VER: ${{ needs.init.outputs.version }}
-      run: echo "version check. $OUT_VER"
-      run: echo "GITHUB REF check. $GITHUB_REF"
-      run: echo "GITHUBhead ref check. $GITHUB_HEAD_REF"
-      run: echo "GITHUB base ref check. $GITHUB_BASE_REF"
+      - run: |
+        echo "version check. $OUT_VER"
+        echo "GITHUB REF check. $GITHUB_REF"
+        echo "GITHUBhead ref check. $GITHUB_HEAD_REF"
+        echo "GITHUB base ref check. $GITHUB_BASE_REF"
 
   build:
     name: Build ${{ matrix.arch }} plugin
