@@ -1,7 +1,7 @@
 name: Test Init
 
 on:
-  [workflow_dispatch, release]
+[workflow_dispatch, release, pull_request]
 
 env:
   BUILD_NAME: cli
