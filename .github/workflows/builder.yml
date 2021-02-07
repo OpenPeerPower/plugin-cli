@@ -64,8 +64,8 @@ jobs:
       run: echo "BUILD_ARGS=--test" >> $GITHUB_ENV
 
     - name: Check version
-      run: echo "and the version is: ${{ needs.init.outputs.version }}"
-
+      run: echo "the version is $needs.init.outputs.version"
+      
     - name: Build plugin
       uses: openpeerpower/builder@v2.0
       with:
