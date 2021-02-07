@@ -40,6 +40,8 @@ jobs:
       uses: openpeerpower/actions/helpers/version@main
       with:
         type: ${{ env.BUILD_TYPE }}
+    - name: Check version
+      run: echo "version check. $needs.init.outputs.version"
 
   build:
     name: Build ${{ matrix.arch }} plugin
