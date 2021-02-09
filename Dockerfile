@@ -24,7 +24,7 @@ RUN apk add --no-cache --virtual .build-deps \
 
 # Install CLI
 ARG CLI_VERSION
-RUN curl -Lso /usr/bin/op https://github.com/open-peer-power/cli/releases/download/${CLI_VERSION}/op_${BUILD_ARCH} \
+RUN curl -Lso /usr/bin/op https://github.com/openpeerpower/cli/releases/download/${CLI_VERSION}/op_${BUILD_ARCH} \
     && chmod a+x /usr/bin/op
 
 COPY rootfs /
